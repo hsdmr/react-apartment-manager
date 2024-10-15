@@ -19,20 +19,18 @@ function NavItem(props) {
       <NavItem url={props.url} key={item.title} to={item.to} subMenu={item.subMenu} icon={item.icon} title={item.title} />
     )
     return (
-      <>
         <li className={`nav-item ${(props.url[1] === toArray[1]) ? 'menu-open' : ''}`}>
-          <a href="#" className={`nav-link ${(props.url[1] === toArray[1]) ? 'active' : ''}`}>
+          <Link to={props.to} className={`nav-link ${(props.url[1] === toArray[1]) ? 'active' : ''}`}>
             <i className={`nav-icon ${props.icon}`}></i>
             <p>
               {props.title}
               <i className="right fas fa-angle-left"></i>
             </p>
-          </a>
+          </Link>
           <ul className="nav nav-treeview">
             {subItems}
           </ul>
         </li>
-      </>
     );
   }
 }
